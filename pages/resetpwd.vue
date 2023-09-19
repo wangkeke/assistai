@@ -1,0 +1,211 @@
+<template>
+    <div class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+        <nav class="py-4">
+            <div class="max-w-6xl mx-auto p-2 px-6 items-center">
+                <h1>
+                    <div aria-label="Anthropic" class="h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 143 16" width="143" height="16" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"><defs><clipPath id="__lottie_element_101"><rect width="143" height="16" x="0" y="0"></rect></clipPath><clipPath id="__lottie_element_103"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><g id="__lottie_element_107"><g style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="0" d=" M142.5,0 C142.5,0 142.5,16 142.5,16 C142.5,16 0,16 0,16 C0,16 0,0 0,0 C0,0 142.5,0 142.5,0z"></path></g></g></g><clipPath id="__lottie_element_111"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_116"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_125"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_134"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_143"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_152"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_161"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_170"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_179"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath><clipPath id="__lottie_element_188"><path d="M0,0 L143,0 L143,16 L0,16z"></path></clipPath></defs><g clip-path="url(#__lottie_element_101)"><g style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(249,249,247)" fill-opacity="0" d=" M142.5,0 C142.5,0 142.5,16 142.5,16 C142.5,16 0,16 0,16 C0,16 0,0 0,0 C0,0 142.5,0 142.5,0z"></path></g></g><g clip-path="url(#__lottie_element_103)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g clip-path="url(#__lottie_element_111)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g clip-path="url(#__lottie_element_188)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,18.299999237060547,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M10.716191291809082,10.829001426696777 C10.716191291809082,10.829001426696777 3.756195545196533,0 3.756195545196533,0 C3.756195545196533,0 0,0 0,0 C0,0 0,15.470022201538086 0,15.470022201538086 C0,15.470022201538086 3.2038140296936035,15.470022201538086 3.2038140296936035,15.470022201538086 C3.2038140296936035,15.470022201538086 3.2038140296936035,4.6410064697265625 3.2038140296936035,4.6410064697265625 C3.2038140296936035,4.6410064697265625 10.163809776306152,15.470022201538086 10.163809776306152,15.470022201538086 C10.163809776306152,15.470022201538086 13.919991493225098,15.470022201538086 13.919991493225098,15.470022201538086 C13.919991493225098,15.470022201538086 13.919991493225098,0 13.919991493225098,0 C13.919991493225098,0 10.716191291809082,0 10.716191291809082,0 C10.716191291809082,0 10.716191291809082,10.829001426696777 10.716191291809082,10.829001426696777 C10.716191291809082,10.829001426696777 10.716191291809082,10.829001426696777 10.716191291809082,10.829001426696777z"></path></g></g></g><g clip-path="url(#__lottie_element_179)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,34.869998931884766,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M0,2.983504056930542 C0,2.983504056930542 5.19273567199707,2.983504056930542 5.19273567199707,2.983504056930542 C5.19273567199707,2.983504056930542 5.19273567199707,15.470022201538086 5.19273567199707,15.470022201538086 C5.19273567199707,15.470022201538086 8.507256507873535,15.470022201538086 8.507256507873535,15.470022201538086 C8.507256507873535,15.470022201538086 8.507256507873535,2.983504056930542 8.507256507873535,2.983504056930542 C8.507256507873535,2.983504056930542 13.700006484985352,2.983504056930542 13.700006484985352,2.983504056930542 C13.700006484985352,2.983504056930542 13.700006484985352,0 13.700006484985352,0 C13.700006484985352,0 0,0 0,0 C0,0 0,2.983504056930542 0,2.983504056930542 C0,2.983504056930542 0,2.983504056930542 0,2.983504056930542z"></path></g></g></g><g clip-path="url(#__lottie_element_170)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,51.22999954223633,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M10.605714797973633,6.165900230407715 C10.605714797973633,6.165900230407715 3.3142902851104736,6.165900230407715 3.3142902851104736,6.165900230407715 C3.3142902851104736,6.165900230407715 3.3142902851104736,0 3.3142902851104736,0 C3.3142902851104736,0 0,0 0,0 C0,0 0,15.470022201538086 0,15.470022201538086 C0,15.470022201538086 3.3142902851104736,15.470022201538086 3.3142902851104736,15.470022201538086 C3.3142902851104736,15.470022201538086 3.3142902851104736,9.149404525756836 3.3142902851104736,9.149404525756836 C3.3142902851104736,9.149404525756836 10.605714797973633,9.149404525756836 10.605714797973633,9.149404525756836 C10.605714797973633,9.149404525756836 10.605714797973633,15.470022201538086 10.605714797973633,15.470022201538086 C10.605714797973633,15.470022201538086 13.919991493225098,15.470022201538086 13.919991493225098,15.470022201538086 C13.919991493225098,15.470022201538086 13.919991493225098,0 13.919991493225098,0 C13.919991493225098,0 10.605714797973633,0 10.605714797973633,0 C10.605714797973633,0 10.605714797973633,6.165900230407715 10.605714797973633,6.165900230407715 C10.605714797973633,6.165900230407715 10.605714797973633,6.165900230407715 10.605714797973633,6.165900230407715z"></path></g></g></g><g clip-path="url(#__lottie_element_161)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,69.23999786376953,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M3.3151700496673584,2.983504056930542 C3.3151700496673584,2.983504056930542 7.403865814208984,2.983504056930542 7.403865814208984,2.983504056930542 C9.03934097290039,2.983504056930542 9.901290893554688,3.5801939964294434 9.901290893554688,4.707304000854492 C9.901290893554688,5.834399700164795 9.03934097290039,6.431103706359863 7.403865814208984,6.431103706359863 C7.403865814208984,6.431103706359863 3.3151700496673584,6.431103706359863 3.3151700496673584,6.431103706359863 C3.3151700496673584,6.431103706359863 3.3151700496673584,2.983504056930542 3.3151700496673584,2.983504056930542 C3.3151700496673584,2.983504056930542 3.3151700496673584,2.983504056930542 3.3151700496673584,2.983504056930542z M13.216461181640625,4.707304000854492 C13.216461181640625,1.7900969982147217 11.072648048400879,0 7.558576583862305,0 C7.558576583862305,0 0,0 0,0 C0,0 0,15.470022201538086 0,15.470022201538086 C0,15.470022201538086 3.3151700496673584,15.470022201538086 3.3151700496673584,15.470022201538086 C3.3151700496673584,15.470022201538086 3.3151700496673584,9.414593696594238 3.3151700496673584,9.414593696594238 C3.3151700496673584,9.414593696594238 7.005825519561768,9.414593696594238 7.005825519561768,9.414593696594238 C7.005825519561768,9.414593696594238 10.321218490600586,15.470022201538086 10.321218490600586,15.470022201538086 C10.321218490600586,15.470022201538086 13.990056991577148,15.470022201538086 13.990056991577148,15.470022201538086 C13.990056991577148,15.470022201538086 10.319005966186523,8.953378677368164 10.319005966186523,8.953378677368164 C12.161579132080078,8.245061874389648 13.216461181640625,6.753532409667969 13.216461181640625,4.707304000854492 C13.216461181640625,4.707304000854492 13.216461181640625,4.707304000854492 13.216461181640625,4.707304000854492z"></path></g></g></g><g clip-path="url(#__lottie_element_152)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,84.98999786376953,0)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M7.622087478637695,12.906073570251465 C5.015110492706299,12.906073570251465 3.4244225025177,11.049725532531738 3.4244225025177,8.022093772888184 C3.4244225025177,4.95027494430542 5.015110492706299,3.0939269065856934 7.622087478637695,3.0939269065856934 C10.206976890563965,3.0939269065856934 11.775577545166016,4.95027494430542 11.775577545166016,8.022093772888184 C11.775577545166016,11.049725532531738 10.206976890563965,12.906073570251465 7.622087478637695,12.906073570251465 C7.622087478637695,12.906073570251465 7.622087478637695,12.906073570251465 7.622087478637695,12.906073570251465z M7.622087478637695,0 C3.1593029499053955,0 0,3.3149218559265137 0,8.022093772888184 C0,12.685078620910645 3.1593029499053955,16 7.622087478637695,16 C12.062784194946289,16 15.200028419494629,12.685078620910645 15.200028419494629,8.022093772888184 C15.200028419494629,3.3149218559265137 12.062784194946289,0 7.622087478637695,0 C7.622087478637695,0 7.622087478637695,0 7.622087478637695,0z"></path></g></g></g><g clip-path="url(#__lottie_element_143)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,103.29000091552734,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M7.405848026275635,6.873104095458984 C7.405848026275635,6.873104095458984 3.3160574436187744,6.873104095458984 3.3160574436187744,6.873104095458984 C3.3160574436187744,6.873104095458984 3.3160574436187744,2.983504056930542 3.3160574436187744,2.983504056930542 C3.3160574436187744,2.983504056930542 7.405848026275635,2.983504056930542 7.405848026275635,2.983504056930542 C9.04176139831543,2.983504056930542 9.90394115447998,3.646505117416382 9.90394115447998,4.928304195404053 C9.90394115447998,6.2101030349731445 9.04176139831543,6.873104095458984 7.405848026275635,6.873104095458984 C7.405848026275635,6.873104095458984 7.405848026275635,6.873104095458984 7.405848026275635,6.873104095458984z M7.5605998039245605,0 C7.5605998039245605,0 0,0 0,0 C0,0 0,15.470022201538086 0,15.470022201538086 C0,15.470022201538086 3.3160574436187744,15.470022201538086 3.3160574436187744,15.470022201538086 C3.3160574436187744,15.470022201538086 3.3160574436187744,9.85659408569336 3.3160574436187744,9.85659408569336 C3.3160574436187744,9.85659408569336 7.5605998039245605,9.85659408569336 7.5605998039245605,9.85659408569336 C11.07561206817627,9.85659408569336 13.219999313354492,8.000200271606445 13.219999313354492,4.928304195404053 C13.219999313354492,1.8563942909240723 11.07561206817627,0 7.5605998039245605,0 C7.5605998039245605,0 7.5605998039245605,0 7.5605998039245605,0z"></path></g></g></g><g clip-path="url(#__lottie_element_134)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,128.0399932861328,0)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M10.914844512939453,10.5414400100708 C10.340370178222656,12.044201850891113 9.191434860229492,12.906073570251465 7.622706890106201,12.906073570251465 C5.0155181884765625,12.906073570251465 3.4246866703033447,11.049725532531738 3.4246866703033447,8.022093772888184 C3.4246866703033447,4.95027494430542 5.0155181884765625,3.0939269065856934 7.622706890106201,3.0939269065856934 C9.191434860229492,3.0939269065856934 10.340370178222656,3.9557981491088867 10.914844512939453,5.458559989929199 C10.914844512939453,5.458559989929199 14.427860260009766,5.458559989929199 14.427860260009766,5.458559989929199 C13.566211700439453,2.1436522006988525 10.981111526489258,0 7.622706890106201,0 C3.1595458984375,0 0,3.3149218559265137 0,8.022093772888184 C0,12.685078620910645 3.1595458984375,16 7.622706890106201,16 C11.003214836120605,16 13.588300704956055,13.834254264831543 14.449976921081543,10.5414400100708 C14.449976921081543,10.5414400100708 10.914844512939453,10.5414400100708 10.914844512939453,10.5414400100708 C10.914844512939453,10.5414400100708 10.914844512939453,10.5414400100708 10.914844512939453,10.5414400100708z"></path></g></g></g><g clip-path="url(#__lottie_element_125)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,117.83000183105469,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M0,0 C0,0 6.1677093505859375,15.470022201538086 6.1677093505859375,15.470022201538086 C6.1677093505859375,15.470022201538086 9.550004005432129,15.470022201538086 9.550004005432129,15.470022201538086 C9.550004005432129,15.470022201538086 3.382294178009033,0 3.382294178009033,0 C3.382294178009033,0 0,0 0,0 C0,0 0,0 0,0z"></path></g></g></g><g clip-path="url(#__lottie_element_116)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g style="display: block;" transform="matrix(1,0,0,1,0,0.27000001072883606)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(24,24,24)" fill-opacity="1" d=" M5.824605464935303,9.348296165466309 C5.824605464935303,9.348296165466309 7.93500280380249,3.911694288253784 7.93500280380249,3.911694288253784 C7.93500280380249,3.911694288253784 10.045400619506836,9.348296165466309 10.045400619506836,9.348296165466309 C10.045400619506836,9.348296165466309 5.824605464935303,9.348296165466309 5.824605464935303,9.348296165466309 C5.824605464935303,9.348296165466309 5.824605464935303,9.348296165466309 5.824605464935303,9.348296165466309z M6.166755199432373,0 C6.166755199432373,0 0,15.470022201538086 0,15.470022201538086 C0,15.470022201538086 3.4480772018432617,15.470022201538086 3.4480772018432617,15.470022201538086 C3.4480772018432617,15.470022201538086 4.709278583526611,12.22130012512207 4.709278583526611,12.22130012512207 C4.709278583526611,12.22130012512207 11.16093635559082,12.22130012512207 11.16093635559082,12.22130012512207 C11.16093635559082,12.22130012512207 12.421928405761719,15.470022201538086 12.421928405761719,15.470022201538086 C12.421928405761719,15.470022201538086 15.87000560760498,15.470022201538086 15.87000560760498,15.470022201538086 C15.87000560760498,15.470022201538086 9.703250885009766,0 9.703250885009766,0 C9.703250885009766,0 6.166755199432373,0 6.166755199432373,0 C6.166755199432373,0 6.166755199432373,0 6.166755199432373,0z"></path></g></g></g></g></g></g></svg>
+                    </div>
+                </h1>
+            </div>
+        </nav>
+        <div class="max-w-6xl mx-auto p-2 px-6 py-16">
+            <main>
+                <section class="grid gap-4 grid-cols-1 max-w-sm mx-auto pb-10 place-content-center">
+                    <h2 class="font-styrene-display
+                        font-medium
+                        tracking-tight
+                        text-6xl
+                        text-center
+                        pb-4 text-black
+                    ">Talk to Assistant</h2>
+                    <form name="resetpwdForm" class="contents" onsubmit="return false">
+                        <label class="block">
+                            <span class="block text-sm font-medium">邮箱</span>
+                            <input :disabled="one_disabled" id="email" name="email" placeholder="请输入邮箱地址" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="email">
+                        </label>
+                        <p class="text-center text-sm text-stone-500" :class="step === 2?'block':'hidden'">我们已经向你的邮箱发送了验证码。请检查你的收件箱。没有收到? 
+                            <a href="#" @click="resetForm()" class="leading-6 font-semibold underline underline-offset-2 focus:text-stone-900">再试一次</a>
+                        </p>
+                        <label v-if="step === 2">
+                            <span class="block text-sm font-medium">验证码</span>
+                            <input id="captcha" name="captcha" placeholder="请输入验证码" minlength="6" maxlength="6" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="text">
+                        </label>
+                        <label v-if="step === 3">
+                            <span class="block text-sm font-medium">设置密码</span>
+                            <input id="password" name="password" placeholder="请输入密码" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
+                        </label>
+                        <label v-if="step === 3">
+                            <div class="flex items-center justify-between text-sm font-medium">
+                                <span class="block text-sm font-medium">再次确认</span>
+                                <label class="text-sm text-red-800" :class="wrong_password?'block':'hidden'">两次密码输入不一致</label>
+                            </div>
+                            <input id="double_password" name="double_password" @focus="wrong_password = false" placeholder="请再次输入密码确认" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
+                        </label>
+
+                        <button v-if="step === 1" type="submit" @click="sendEmailCode()" :disabled="one_disabled" class=" group 
+                            px-4
+                            py-2
+                            rounded-lg
+                            shadow-sm
+                            flex
+                            items-center
+                            place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
+                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 发送邮箱验证码</button>
+
+                        <button v-if="step === 2" type="submit" @click="checkEmailCode()" :disabled="two_disabled" class=" group
+                            px-4
+                            py-2
+                            rounded-lg
+                            shadow-sm
+                            flex
+                            items-center
+                            place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
+                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 校验验证码</button>
+
+                        <button v-if="step === 3" type="submit" @click="resetpwd()" :disabled="three_disabled" class=" group
+                            px-4
+                            py-2
+                            rounded-lg
+                            shadow-sm
+                            flex
+                            items-center
+                            place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
+                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 重置密码</button>
+                        <button v-if="step === 3" type="button" @click="resetForm()" :disabled="three_disabled" class=" group
+                            px-4
+                            py-2
+                            rounded-lg
+                            shadow-sm
+                            flex
+                            items-center
+                            place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
+                        > 重 置</button>
+
+                    </form>
+                    <p class="text-center text-sm text-black">
+                        <NuxtLink to="/login" class="font-semibold leading-6 text-gigas-800 hover:text-gigas-900">立即登录</NuxtLink>
+                    </p>
+                </section>
+            </main>
+        </div>
+    </div>
+</template>
+<script setup>
+    definePageMeta({
+        middleware: ['auth']
+    })
+    const toast = useToast()
+    const router = useRouter()
+    
+    const step = ref(1)
+    const one_disabled = ref(false)
+    const two_disabled = ref(true)
+    const three_disabled = ref(true)
+    const wrong_password = ref(false)
+
+
+    async function sendEmailCode(){
+        if(!document.forms.resetpwdForm.checkValidity()){
+            return
+        }
+        await useFetch(useRuntimeConfig().public.apiBase + "/send_email_reset_code", {
+            method: 'post',
+            body:  {"email": document.getElementById("email").value},
+            onRequest({ request, options }) {
+                one_disabled.value = true
+            },
+            async onResponse({ request, response, options }) {
+                let data = response._data
+                if(response.ok === true){
+                    toast.add({
+                        title: '验证码已发送！',
+                        icon: 'i-heroicons-check-circle',
+                        color: 'gigas'
+                    })
+                    step.value = 2
+                    one_disabled.value = true
+                    two_disabled.value = false
+                    three_disabled.value = true
+                }else{
+                    one_disabled.value = false
+                    toast.add({
+                        title: data.detail,
+                        icon: 'i-heroicons-exclamation-triangle',
+                        color: 'red'
+                    })
+                }
+            }
+        })
+    }
+
+    async function checkEmailCode(){
+        if(!document.forms.resetpwdForm.checkValidity()){
+            return
+        }
+        await useFetch(useRuntimeConfig().public.apiBase + "/verify_email_reset_code", {
+            method: 'post',
+            body:  {"email": document.getElementById("email").value, "captcha": document.getElementById("captcha").value},
+            onRequest({ request, options }) {
+                two_disabled.value = true
+            },
+            async onResponse({ request, response, options }) {
+                if(response.ok === true){
+                    step.value = 3
+                    one_disabled.value = true
+                    two_disabled.value = true
+                    three_disabled.value = false
+                }else{
+                    two_disabled.value = false
+                    toast.add({
+                        title: '验证码校验失败！',
+                        icon: 'i-heroicons-exclamation-triangle',
+                        color: 'red'
+                    })
+                }
+            }
+        })
+    }
+
+    async function resetpwd(){
+        if(!document.forms.resetpwdForm.checkValidity()){
+            return
+        }
+        let password = document.getElementById("password").value
+        let double_password = document.getElementById('double_password').value
+        if(password !== double_password){
+            wrong_password.value = true
+            return
+        }
+        await useFetch(useRuntimeConfig().public.apiBase + "/reset_password", {
+            method: 'post',
+            body:  {"username": document.getElementById("email").value, "password": password},
+            onRequest({ request, options }) {
+                three_disabled.value = true
+            },
+            async onResponse({ request, response, options }) {
+                let data = response._data
+                three_disabled.value = false
+                if(response.ok === true){
+                    router.push("/login")
+                }else{
+                    toast.add({
+                        title: '重置密码失败！',
+                        icon: 'i-heroicons-exclamation-triangle',
+                        color: 'red'
+                    })
+                }
+            }
+        })
+    }
+
+    function resetForm(){
+        step.value = 1
+        one_disabled.value = false
+        two_disabled.value = true
+        three_disabled.value = true
+        wrong_password.value = false
+        document.forms.resetpwdForm.reset()
+    }
+
+</script>
