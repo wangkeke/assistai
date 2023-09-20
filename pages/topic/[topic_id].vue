@@ -161,7 +161,7 @@
         </div>
         <!-- 初始化背景占位图像布局 -->
         <figure class="max-w-sm grid grid-cols-1 mx-auto text-center h-full place-content-center gap-2 inset-0 absolute invisible peer-empty:visible" aria-hidden="true" data-testid="empty-chat-screen">
-          <span class="font-styrene-display font-medium text-6xl tracking-tighter mb-2">Claude</span>
+          <span class="font-styrene-display font-medium text-6xl tracking-tighter mb-2">Assistai</span>
           <span class="font-styrene font-medium tex-sm">by</span><img alt="Anthropic" loading="lazy" width="108" height="12" decoding="async" data-nimg="1" class="w-full max-h-3.5" src="/ant_logo_full.svg" style="color: transparent;">
         </figure>
 
