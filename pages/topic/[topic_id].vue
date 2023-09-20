@@ -1032,7 +1032,7 @@
       Array.from(document.getElementsByName("chat")).slice(-turn.value*2-1).forEach(e => {
         chats.push({role: e.getAttribute("role"), content: e.getElementsByClassName("hidden")[0].innerHTML})
       })
-      fetchEventSource(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chat_conversation_test", {
+      fetchEventSource(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chat_conversation", {
         method: 'POST',
         headers: {
           "Authorization": "Bearer " + user.access_token,
