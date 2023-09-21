@@ -152,7 +152,7 @@
     </header>
     
     <div class="flex relative mx-auto h-screen">
-      <div id="main" class="w-screen inset-0 overflow-y-auto h-screen" @scroll="getChatHistory">
+      <div id="main" :key="topicId" class="w-screen inset-0 overflow-y-auto h-screen" @scroll="getChatHistory">
         <!-- 聊天记录数据加载 -->
         <div id="chats-loading" class="max-w-3xl mx-auto px-3 pt-16 text-center text-uivory-800 text-sm peer hidden">正在加载中...</div>
         <!-- 中间聊天内容容器 -->
@@ -187,7 +187,7 @@
               bg-uivory-100 hover:bg-uivory-200
               focus-within:ring
               ">
-              <input id="upload" class="opacity-0 absolute inset-0 rounded-xl -z-10 overflow-hidden text-gray-950" accept=".pdf,.doc,.docx,.rtf,.epub,.odt,.odp,.pptx,.txt,.py,.ipynb,.js,.jsx,.html,.css,.java,.cs,.php,.c,.cpp,.cxx,.h,.hpp,.rs,.R,.Rmd,.swift,.go,.rb,.kt,.kts,.ts,.tsx,.m,.scala,.rs,.dart,.lua,.pl,.pm,.t,.sh,.bash,.zsh,.csv,.log,.ini,.config,.json,.yaml,.yml,.toml,.lua,.sql,.bat,.md,.coffee" multiple="" type="file"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="text-gray-950" fill="currentColor" viewBox="0 0 256 256"><path d="M208.25,123.76a6,6,0,0,1,0,8.49l-82.06,82a54,54,0,0,1-76.36-76.39L149.1,37.14a38,38,0,1,1,53.77,53.72L103.59,191.54a22,22,0,1,1-31.15-31.09l83.28-84.67a6,6,0,0,1,8.56,8.42L81,168.91a10,10,0,1,0,14.11,14.18L194.35,82.4a26,26,0,1,0-36.74-36.8L58.33,146.28a42,42,0,1,0,59.37,59.44l82.06-82A6,6,0,0,1,208.25,123.76Z"></path></svg></label>
+              <input id="upload" title="功能开发中，暂不可用" class="opacity-0 absolute inset-0 rounded-xl -z-10 overflow-hidden text-gray-950" accept=".pdf,.doc,.docx,.rtf,.epub,.odt,.odp,.pptx,.txt,.py,.ipynb,.js,.jsx,.html,.css,.java,.cs,.php,.c,.cpp,.cxx,.h,.hpp,.rs,.R,.Rmd,.swift,.go,.rb,.kt,.kts,.ts,.tsx,.m,.scala,.rs,.dart,.lua,.pl,.pm,.t,.sh,.bash,.zsh,.csv,.log,.ini,.config,.json,.yaml,.yml,.toml,.lua,.sql,.bat,.md,.coffee" multiple="" type="file"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="text-gray-950" fill="currentColor" viewBox="0 0 256 256"><path d="M208.25,123.76a6,6,0,0,1,0,8.49l-82.06,82a54,54,0,0,1-76.36-76.39L149.1,37.14a38,38,0,1,1,53.77,53.72L103.59,191.54a22,22,0,1,1-31.15-31.09l83.28-84.67a6,6,0,0,1,8.56,8.42L81,168.91a10,10,0,1,0,14.11,14.18L194.35,82.4a26,26,0,1,0-36.74-36.8L58.33,146.28a42,42,0,1,0,59.37,59.44l82.06-82A6,6,0,0,1,208.25,123.76Z"></path></svg></label>
     
             <button id="send" @click="sendMessage" class="bg-gigas-800 hover:bg-gigas-900 disabled:bg-gigas-400 inline-flex items-center justify-center gap-1 py-2 text-white rounded-lg h-8 w-8">
               <svg class="h-4 w-4" viewBox="0 0 24 24"  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <line x1="22" y1="2" x2="11" y2="13"></line>  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
