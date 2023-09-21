@@ -89,7 +89,7 @@
                         <div>
                             <div data-header="" style="margin: 2rem 0px 1rem;font-size: 1.25rem;" aria-hidden="true" >今天</div>
                             <div  class="grid grid-cols-1 gap-y-2.5">
-                                <div v-for="(item, index) in data.todayTopics" class="relative
+                                <div v-for="(item, index) in data.todayTopics" :key="item.id" class="relative
                                     bg-uivory-200 hover:bg-white
                                     py-3
                                     px-6
@@ -124,7 +124,7 @@
                         <div>
                             <div data-header="" style="margin: 2rem 0px 1rem;font-size: 1.25rem;" aria-hidden="true" >最近一周</div>
                             <div class="grid grid-cols-1 gap-y-2.5">
-                                <div v-for="(item, index) in data.weekTopics" class="relative
+                                <div v-for="(item, index) in data.weekTopics" :key="item.id" class="relative
                                     bg-uivory-200 hover:bg-white
                                     py-3
                                     px-6
@@ -159,7 +159,7 @@
                         <div>
                             <div data-header="" style="margin: 2rem 0px 1rem;font-size: 1.25rem;" aria-hidden="true" >上个月</div>
                             <div class="grid grid-cols-1 gap-y-2.5">
-                                <div v-for="(item, index) in data.monthTopics" class="relative
+                                <div v-for="(item, index) in data.monthTopics" :key="item.id" class="relative
                                     bg-uivory-200 hover:bg-white
                                     py-3
                                     px-6

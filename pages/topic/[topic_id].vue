@@ -152,11 +152,11 @@
     </header>
     
     <div class="flex relative mx-auto h-screen">
-      <div id="main" :key="topicId" class="w-screen inset-0 overflow-y-auto h-screen" @scroll="getChatHistory">
+      <div id="main" class="w-screen inset-0 overflow-y-auto h-screen" @scroll="getChatHistory">
         <!-- 聊天记录数据加载 -->
         <div id="chats-loading" class="max-w-3xl mx-auto px-3 pt-16 text-center text-uivory-800 text-sm peer hidden">正在加载中...</div>
         <!-- 中间聊天内容容器 -->
-        <div id="messageContainer" style="grid-template-columns: 2rem minmax(0px, 1fr) 2rem" class="peer group max-w-3xl mx-auto px-3 peer-[.hidden]:pt-16 pb-4 grid gap-x-2 gap-y-3">
+        <div id="messageContainer" :key="topicId" style="grid-template-columns: 2rem minmax(0px, 1fr) 2rem" class="peer group max-w-3xl mx-auto px-3 peer-[.hidden]:pt-16 pb-4 grid gap-x-2 gap-y-3">
     
         </div>
         <!-- 初始化背景占位图像布局 -->
