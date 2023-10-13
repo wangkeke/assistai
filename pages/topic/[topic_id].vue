@@ -627,6 +627,7 @@
       let prompt = content.substring(si+9)
       let img = document.createElement("img")
       img.src = url
+      img.className = "w-64 h-64 bg-gray-200"
       img.setAttribute("alt", prompt)
       element.appendChild(img)
       hiddenValue += prompt
@@ -881,6 +882,7 @@
       let prompt = content.substring(si+9)
       let img = document.createElement("img")
       img.src = url
+      img.className = "w-64 h-64 bg-gray-200"
       img.setAttribute("alt", prompt)
       element.appendChild(img)
       hiddenValue += prompt
