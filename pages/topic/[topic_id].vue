@@ -479,7 +479,11 @@
       div3.className = 'hidden text'
       messageContainer.insertBefore(div, headElement.nextSibling)
       hiddenValue = ""
-      streamEventHandleReverse(div2, message.content)
+      if(message.content_type && message.content_type === 'image'){
+        imageEventHandleReverse(div2, message.content)
+      }else{
+        streamEventHandleReverse(div2, message.content)
+      }
       div3.innerHTML = hiddenValue
       createBottomButtonGroupReverse(div1, message)
     }
@@ -611,6 +615,23 @@
       }    
     }
 
+    function imageEventHandleReverse(contents, content){
+      let element = contents.lastChild
+      if(!element){
+        element = document.createElement('div')
+        element.className = 'whitespace-pre-wrap'
+        contents.appendChild(element);
+      }
+      let si = content.indexOf(", prompt=")
+      let url = content.substring(4,si)
+      let prompt = content.substring(si+9)
+      let img = document.createElement("img")
+      img.src = url
+      img.setAttribute("alt", prompt)
+      element.appendChild(img)
+      hiddenValue += prompt
+    }
+
     function createBottomButtonGroupReverse(container, message){
       let div = document.createElement('div')
       div.className = 'flex gap-0.5 -mx-1 -mt-2 text-stone-500 justify-between items-stretch'
@@ -713,6 +734,7 @@
       div11.appendChild(issueButton)
     }
     
+    // 文本类型响应事件处理函数
     function streamEventHandle(content){
       let messageContainer = document.getElementById('messageContainer')
       let contents = messageContainer.lastChild.getElementsByClassName('contents')[0]
@@ -844,7 +866,28 @@
       let main = document.getElementById('main')
       main.scrollTop = main.scrollHeight       
     }
-
+    // 图片类型响应事件处理函数
+    function imageEventHandle(content){
+      let messageContainer = document.getElementById('messageContainer')
+      let contents = messageContainer.lastChild.getElementsByClassName('contents')[0]
+      let element = contents.lastChild
+      if(!element){
+        element = document.createElement('div')
+        element.className = 'whitespace-pre-wrap'
+        contents.appendChild(element);
+      }
+      let si = content.indexOf(", prompt=")
+      let url = content.substring(4,si)
+      let prompt = content.substring(si+9)
+      let img = document.createElement("img")
+      img.src = url
+      img.setAttribute("alt", prompt)
+      element.appendChild(img)
+      hiddenValue += prompt
+      // 页面滚动条自动滚动到内容最底部
+      let main = document.getElementById('main')
+      main.scrollTop = main.scrollHeight       
+    }
 
     
     function endEventHandle(message){
@@ -1060,6 +1103,8 @@
             startEventHandle(null)
           }else if(msg.event==='stream'){
             streamEventHandle(msg.data.replaceAll('\\n','\n'))
+          }else if(msg.event==='image'){
+            imageEventHandle(msg.data)
           }else if(msg.event==='end'){
             endEventHandle({id: msg.data})
           }else if(msg.event==='error'){
