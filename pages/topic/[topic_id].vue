@@ -878,11 +878,10 @@
         element.className = 'whitespace-pre-wrap'
         contents.appendChild(element);
       }
-      let img_container = document.createElement('div')
-      img_container.className = 'w-64 h-64 bg-uivory-100 text-center text-uivory-800'
-      img_container.style = 'line-height:256px;'
-      img_container.innerHTML = '生成图片中......'
-      element.appendChild(img_container)
+      let img = document.createElement("img")
+      img.src = "/img_loading.png"
+      img.className = "w-64 h-64 bg-uivory-100"
+      element.appendChild(img)
       // 页面滚动条自动滚动到内容最底部
       let main = document.getElementById('main')
       main.scrollTop = main.scrollHeight       
