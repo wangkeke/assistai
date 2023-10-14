@@ -623,14 +623,17 @@
         contents.appendChild(element);
       }
       let si = content.indexOf(", prompt=")
-      let url = content.substring(4,si)
+      let url = useRuntimeConfig().public.apiBase + content.substring(4,si)
       let prompt = content.substring(si+9)
+      let img_container = document.createElement('div')
+      img_container.className = 'w-64 h-64 bg-uivory-100 text-center text-uivory-800'
+      element.appendChild(img_container)
       let img = document.createElement("img")
       img.src = url
-      img.className = "w-64 h-64 bg-gray-200"
+      img.className = "w-full h-full"
       img.setAttribute("alt", prompt)
-      element.appendChild(img)
-      hiddenValue += prompt
+      img_container.appendChild(img)
+      hiddenValue += url
     }
 
     function createBottomButtonGroupReverse(container, message){
@@ -867,8 +870,9 @@
       let main = document.getElementById('main')
       main.scrollTop = main.scrollHeight       
     }
-    // 图片类型响应事件处理函数
-    function imageEventHandle(content){
+
+    // 插件响应准备阶段处理函数
+    function prepareEventHandle(content){
       let messageContainer = document.getElementById('messageContainer')
       let contents = messageContainer.lastChild.getElementsByClassName('contents')[0]
       let element = contents.lastChild
@@ -877,18 +881,26 @@
         element.className = 'whitespace-pre-wrap'
         contents.appendChild(element);
       }
-      let si = content.indexOf(", prompt=")
-      let url = content.substring(4,si)
-      let prompt = content.substring(si+9)
-      let img = document.createElement("img")
-      img.src = url
-      img.className = "w-64 h-64 bg-gray-200"
-      img.setAttribute("alt", prompt)
-      element.appendChild(img)
-      hiddenValue += prompt
+      let img_container = document.createElement('div')
+      img_container.className = 'w-64 h-64 bg-uivory-100 text-center text-uivory-800'
+      img_container.style = 'line-height:256px;'
+      img_container.innerHTML = '生成图片中......'
+      element.appendChild(img_container)
       // 页面滚动条自动滚动到内容最底部
       let main = document.getElementById('main')
       main.scrollTop = main.scrollHeight       
+    }
+
+    // 图片类型响应事件处理函数
+    function imageEventHandle(content){
+      let messageContainer = document.getElementById('messageContainer')
+      let contents = messageContainer.lastChild.getElementsByClassName('contents')[0]
+      let element = contents.lastChild.lastChild
+      let si = content.indexOf(", prompt=")
+      let url = useRuntimeConfig().public.apiBase + content.substring(4,si)
+      let prompt = content.substring(si+9)
+      element.innerHTML = '<img src="' + url + '" class="w-full h-full" alt="' + prompt + '"/>'
+      hiddenValue += url 
     }
 
     
@@ -1091,6 +1103,13 @@
             useUser.removeUser()
             router.push("/login")
             return
+          } else if(response.status === 403){
+            toast.add({
+              title: response.text,
+              icon: 'i-heroicons-exclamation-triangle',
+              color: 'red'
+            })
+            return
           } else if(response.status >= 500) {
             toast.add({
               title: '请求失败，服务器内部错误！',
@@ -1105,6 +1124,8 @@
             startEventHandle(null)
           }else if(msg.event==='stream'){
             streamEventHandle(msg.data.replaceAll('\\n','\n'))
+          }else if(msg.event==='prepare'){
+            prepareEventHandle(msg.data)
           }else if(msg.event==='image'){
             imageEventHandle(msg.data)
           }else if(msg.event==='end'){
@@ -1114,11 +1135,14 @@
           }
         },     
         onclose() {
-            console.log('closed')
             is_sending = false
         },
         onerror(err) {
-            console.log(err)
+            toast.add({
+              title: err,
+              icon: 'i-heroicons-exclamation-triangle',
+              color: 'red'
+            })
         }
       })
     }
