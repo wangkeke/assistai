@@ -259,7 +259,7 @@
         async onResponse({ request, response, options }) {
             if(response.ok === true){
               title.value = response._data.title
-              turn.value = response._data.turn?response._data.turn:1
+              turn.value = response._data.turn?response._data.turn:0
             }else{
                 if(response.status === 401){
                     useUser.removeUser()

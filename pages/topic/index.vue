@@ -269,7 +269,7 @@ async function submitTopic(){
         method: 'post',
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,
-        body:  {"title": newTopicTitle.value.trim(), "turn": 1},
+        body:  {"title": newTopicTitle.value.trim(), "turn": 0},
         onRequest({ request, options }) {
             isdisabled.value = true
         },
