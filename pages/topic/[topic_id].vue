@@ -630,7 +630,7 @@
       element.appendChild(img_container)
       let img = document.createElement("img")
       img.src = url
-      img.className = "w-full h-full"
+      img.className = "w-64 h-64"
       img.setAttribute("alt", prompt)
       img_container.appendChild(img)
       hiddenValue += url
@@ -899,7 +899,7 @@
       let si = content.indexOf(", prompt=")
       let url = useRuntimeConfig().public.apiBase + content.substring(4,si)
       let prompt = content.substring(si+9)
-      element.innerHTML = '<img src="' + url + '" class="w-full h-full" alt="' + prompt + '"/>'
+      element.innerHTML = '<img src="' + url + '" class="w-64 h-64" alt="' + prompt + '"/>'
       hiddenValue += url 
     }
 
