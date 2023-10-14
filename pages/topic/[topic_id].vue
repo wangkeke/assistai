@@ -625,14 +625,11 @@
       let si = content.indexOf(", prompt=")
       let url = useRuntimeConfig().public.apiBase + content.substring(4,si)
       let prompt = content.substring(si+9)
-      let img_container = document.createElement('div')
-      img_container.className = 'w-64 h-64 bg-uivory-100 text-center text-uivory-800'
-      element.appendChild(img_container)
       let img = document.createElement("img")
       img.src = url
-      img.className = "w-64 h-64"
+      img.className = "w-64 h-64 bg-uivory-100"
       img.setAttribute("alt", prompt)
-      img_container.appendChild(img)
+      element.appendChild(img)
       hiddenValue += url
     }
 
@@ -895,11 +892,16 @@
     function imageEventHandle(content){
       let messageContainer = document.getElementById('messageContainer')
       let contents = messageContainer.lastChild.getElementsByClassName('contents')[0]
-      let element = contents.lastChild.lastChild
+      let element = contents.lastChild
       let si = content.indexOf(", prompt=")
       let url = useRuntimeConfig().public.apiBase + content.substring(4,si)
       let prompt = content.substring(si+9)
-      element.innerHTML = '<img src="' + url + '" class="w-64 h-64" alt="' + prompt + '"/>'
+      element.removeChild(element.lastChild)
+      let img = document.createElement("img")
+      img.src = url
+      img.className = "w-64 h-64 bg-uivory-100"
+      img.setAttribute("alt", prompt)
+      element.appendChild(img)
       hiddenValue += url 
     }
 
