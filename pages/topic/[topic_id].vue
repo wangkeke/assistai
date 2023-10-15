@@ -902,6 +902,9 @@
       img.setAttribute("alt", prompt)
       element.appendChild(img)
       hiddenValue += url 
+      // 页面滚动条自动滚动到内容最底部
+      let main = document.getElementById('main')
+      main.scrollTop = main.scrollHeight  
     }
 
     
