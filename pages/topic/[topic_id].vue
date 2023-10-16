@@ -42,7 +42,7 @@
     <div class="opacity-40 py-1.5 px-2 text-sm truncate" :title="user.username">{{ user.username }}</div>
     <div class="py-1" role="none">
       <a href="#" @click="openProfile = true" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-0">账户设置</a>
-      <a href="#" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-1">帮助支持</a>
+      <a href="#" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-1">帮助文档</a>
     </div>
     <div class="py-1" role="none">
       <a href="#" @click="logout()" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-6">退出登录</a>
@@ -878,10 +878,12 @@
         element.className = 'whitespace-pre-wrap'
         contents.appendChild(element);
       }
+      let img_place_bg = document.createElement("div")
+      img_place_bg.className = "bg-uivory-100 animate-pulse w-full h-64 rounded-lg"
+      element.appendChild(img_place_bg)
       let img = document.createElement("img")
-      img.src = "/img_loading.png"
-      img.className = "w-64 h-64 bg-uivory-100"
-      element.appendChild(img)
+      img.className = "w-64 h-64 rounded-lg opacity-0"
+      img_place_bg.appendChild(img)
       // 页面滚动条自动滚动到内容最底部
       let main = document.getElementById('main')
       main.scrollTop = main.scrollHeight       
@@ -895,7 +897,7 @@
       let si = content.indexOf(", prompt=")
       let url = useRuntimeConfig().public.apiBase + content.substring(4,si)
       let prompt = content.substring(si+9)
-      element.removeChild(element.lastChild)
+      element.innerHTML = ""
       let img = document.createElement("img")
       img.src = url
       img.className = "w-64 h-64 bg-uivory-100"
@@ -921,6 +923,7 @@
       // 激活消息发送按钮
       let button = document.getElementById('send');
       button.disabled = false;
+      is_sending = false
     }
     
     function errorEventHandle(message){
@@ -935,6 +938,7 @@
       // 激活消息发送按钮
       let button = document.getElementById('send');
       button.disabled = false;
+      is_sending = false
     }
     
     function createBottomButtonGroup(messageContainer, message){
@@ -1066,12 +1070,21 @@
                 }else if(response.status === 401){
                   useUser.removeUser()
                   router.push("/login")
-                }else{
+                }else if(response.status === 403){
+                  toast.add({
+                    title: data.detail,
+                    icon: 'i-heroicons-exclamation-triangle',
+                    color: 'red'
+                  })
+                } else{
                   toast.add({
                     title: '请求失败，服务器内部错误！',
                     icon: 'i-heroicons-exclamation-triangle',
                     color: 'red'
                   })
+                  // 激活消息发送按钮
+                  let button = document.getElementById('send');
+                  button.disabled = false;
                 }
             }
         })
@@ -1093,7 +1106,7 @@
       Array.from(document.getElementsByName("chat")).slice(-turn.value*2-1).forEach(e => {
         chats.push({role: e.getAttribute("role"), content: e.getElementsByClassName("hidden")[0].innerHTML})
       })
-      fetchEventSource(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chat_conversation", {
+      fetchEventSource(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chat_conversation_test", {
         method: 'POST',
         headers: {
           "Authorization": "Bearer " + user.access_token,
@@ -1109,7 +1122,7 @@
             return
           } else if(response.status === 403){
             toast.add({
-              title: response.text,
+              title: "你已经超出今日使用限制！",
               icon: 'i-heroicons-exclamation-triangle',
               color: 'red'
             })
@@ -1139,7 +1152,7 @@
           }
         },     
         onclose() {
-            is_sending = false
+            
         },
         onerror(err) {
             toast.add({

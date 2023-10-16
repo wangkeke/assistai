@@ -52,7 +52,7 @@
   })
 
   const isDisabled = ref(false)
-  const turns = [0,1,2,3,4]
+  const turns = [0,1,2,3,4,5]
 
   const emit = defineEmits({
     "update:open": Boolean

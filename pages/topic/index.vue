@@ -218,7 +218,7 @@
           <div class="opacity-40 py-1.5 px-2 text-sm truncate" :title="user.username">{{ user.username }}</div>
           <div class="py-1" role="none">
             <a href="#" @click="openProfile = true" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-0">账户设置</a>
-            <a href="#" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-1">帮助支持</a>
+            <a href="#" class="text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-1">帮助文档</a>
           </div>
           <div class="py-1" role="none">
             <a href="#" @click="logout()" class=" text-gray-700 block px-4 py-1.5 text-sm hover:bg-uivory-100 rounded" role="menuitem" tabindex="-1" id="menu-item-6">退出登录</a>
