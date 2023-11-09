@@ -72,12 +72,11 @@
     }
     let url = useRuntimeConfig().public.apiBase
     if(!props.issueId){
-      url += "/create_chat_issue"
+      url += "/chat/" + props.chatId + "/issue/create"
     }else{
-      url += "/update_chat_issue"
+      url += "/chat/" + props.chatId + "/issue/update"
     }
     let bodyData = {
-          "topic_chat_id": props.chatId, 
           "id": props.issueId, 
           "type": document.getElementById("issue-type").value, 
           "detail": document.getElementById("issue-detail").value

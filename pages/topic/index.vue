@@ -242,7 +242,7 @@ const openProfile = ref(false)
 const isdisabled = ref(false)
 const newTopicTitle = ref("")
 
-const {data} = await useFetch(useRuntimeConfig().public.apiBase + "/get_topics", {
+const {data} = await useFetch(useRuntimeConfig().public.apiBase + "/topic/list", {
     method: 'get',
     headers: {"Authorization":"Bearer " + user.access_token},
     retry: false,
@@ -265,7 +265,7 @@ async function submitTopic(){
     if(!document.forms.createTopic.checkValidity()){
         return
     }
-    await useFetch(useRuntimeConfig().public.apiBase + "/create_topic", {
+    await useFetch(useRuntimeConfig().public.apiBase + "/topic/create", {
         method: 'post',
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,

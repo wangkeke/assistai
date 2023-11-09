@@ -253,7 +253,7 @@
     const next_chat_id = ref(undefined)
     const is_loaded_finish = ref(false)
 
-    await useFetch(useRuntimeConfig().public.apiBase + "/topic/" + topicId, {
+    await useFetch(useRuntimeConfig().public.apiBase + "/topic/get/" + topicId, {
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,
         async onResponse({ request, response, options }) {
@@ -294,7 +294,7 @@
       if(next_chat_id.value){
         param.next_chat_id = next_chat_id.value
       }
-      await useFetch(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chat", {
+      await useFetch(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chats", {
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,
         params: param,
@@ -683,7 +683,7 @@
         let sendBtn = document.getElementById('send')
         sendBtn.disabled = true
         // 删除这一条记录
-        await useFetch(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/remove_chat", {
+        await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/remove", {
           method: 'get',
           headers: {"Authorization":"Bearer " + user.access_token},
           retry: false,
@@ -991,7 +991,7 @@
         let sendBtn = document.getElementById('send')
         sendBtn.disabled = true
         // 删除这一条记录
-        await useFetch(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/remove_chat", {
+        await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/remove", {
           method: 'get',
           headers: {"Authorization":"Bearer " + user.access_token},
           retry: false,
@@ -1057,7 +1057,7 @@
         // 禁用发送按钮
         let sendBtn = document.getElementById('send')
         sendBtn.disabled =true
-        await useFetch(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/add_chat", {
+        await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/add", {
             method: 'post',
             headers: {"Authorization":"Bearer " + user.access_token},
             body:  {'role': 'user', 'content': message},
@@ -1106,7 +1106,7 @@
       Array.from(document.getElementsByName("chat")).slice(-turn.value*2-1).forEach(e => {
         chats.push({role: e.getAttribute("role"), content: e.getElementsByClassName("hidden")[0].innerHTML})
       })
-      fetchEventSource(useRuntimeConfig().public.apiBase + "/topic/" + topicId + "/chat_conversation", {
+      fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
         method: 'POST',
         headers: {
           "Authorization": "Bearer " + user.access_token,

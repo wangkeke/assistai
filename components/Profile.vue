@@ -67,7 +67,7 @@
     if(!document.forms.profileForm.checkValidity()){
         return
     }
-    await useFetch(useRuntimeConfig().public.apiBase + "/modify_nickname", {
+    await useFetch(useRuntimeConfig().public.apiBase + "/user/modify_nickname", {
         method: 'post',
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,

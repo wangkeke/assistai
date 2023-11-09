@@ -77,7 +77,7 @@
           "title": document.getElementById("topic-title").value,
           "turn": document.getElementById("topic-turn").value
         }
-    await useFetch(useRuntimeConfig().public.apiBase + "/update_topic/" + props.topicId, {
+    await useFetch(useRuntimeConfig().public.apiBase + "/topic/update/" + props.topicId, {
         method: 'post',
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,

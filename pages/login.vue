@@ -18,7 +18,7 @@
                         text-6xl
                         text-center
                         pb-4 text-black
-                    ">Talk to Assistant</h2>
+                    ">Talk to Assistai</h2>
                     <form name="login" class="contents" onsubmit="return false">
                         <label class="block">
                             <span class="block text-sm font-medium">邮箱</span>
@@ -69,7 +69,7 @@
         if(!document.forms.login.checkValidity()){
             return
         }
-        await useFetch(useRuntimeConfig().public.apiBase + "/token", {
+        await useFetch(useRuntimeConfig().public.apiBase + "/user/token", {
             method: 'post',
             headers: {"Content-Type":"application/x-www-form-urlencoded"},
             body:  "username=" + username.value + "&" + "password=" + password.value,

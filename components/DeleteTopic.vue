@@ -55,7 +55,7 @@
   })
 
   async function removeTopic() {
-    await useFetch(useRuntimeConfig().public.apiBase + "/remove_topic/" + props.topicId, {
+    await useFetch(useRuntimeConfig().public.apiBase + "/topic/remove/" + props.topicId, {
         method: 'get',
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,
