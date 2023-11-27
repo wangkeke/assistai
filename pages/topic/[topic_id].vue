@@ -560,11 +560,6 @@
               if(response.ok){
                 // 发送AI回复请求
                 chatList.value.push(response._data)
-                setTimeout(() =>{
-                  // 页面滚动条自动滚动到内容最底部
-                  let main = document.getElementById('main')
-                  main.scrollTop = main.scrollHeight
-                }, 100)
                 sendAssistantRequest(chatList.value.slice(-turn.value*2-1))
               }else if(response.status === 401){  // 登录过期
                 useUser.removeUser()
@@ -611,9 +606,17 @@
           method: 'post',
           headers: {"Authorization":"Bearer " + user.access_token},
           body: messages,
+          onRequest({request}){
+            chatList.value.push({id: undefined, role: "assistant", content_type: "text", content: "", attachs: [], topic_chat_issues: []})
+            setTimeout(() =>{
+              // 页面滚动条自动滚动到内容最底部
+              let main = document.getElementById('main')
+              main.scrollTop = main.scrollHeight
+            }, 100)
+          },
           onResponse({ request, response, options }) {
               if(response.ok){
-                chatList.value.push(response._data.topic_chat)
+                chatList.value[chatList.value.length-1] = response._data.topic_chat
                 setTimeout(() =>{
                   // 页面滚动条自动滚动到内容最底部
                   let main = document.getElementById('main')
