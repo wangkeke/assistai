@@ -6,15 +6,41 @@
     font-family: var(--font-styrene-a),ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
-.shadow-element {
-    --tw-shadow: 0 0 0 0.5px rgba(0,0,0,.1),0 0 20px rgba(0,0,0,.05),0 1px 5px rgba(0,0,0,.1);
-    --tw-shadow-colored: 0 0 0 0.5px var(--tw-shadow-color),0 0 20px var(--tw-shadow-color),0 1px 5px var(--tw-shadow-color);
-}
-
 .shadow, .shadow-element {
     box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
 }
 
+.shadow-\[inset_0_0\.5px_0px_rgba\(255\2c 255\2c 0\2c 0\.15\)\],.shadow-element {
+    box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)
+}
+
+.shadow-element {
+    --tw-shadow: 0 0 0 0.5px rgba(0,0,0,.1),0 0 20px rgba(0,0,0,.05),0 1px 5px rgba(0,0,0,.1);
+    --tw-shadow-colored: 0 0 0 0.5px var(--tw-shadow-color),0 0 20px var(--tw-shadow-color),0 1px 5px var(--tw-shadow-color)
+}
+
 .aspect-square {
     aspect-ratio: 1 / 1;
+}
+
+.ProseMirror {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    white-space: break-spaces;
+    -webkit-font-variant-ligatures: none;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0;
+    position: relative;
+}
+
+.ProseMirror p.is-editor-empty:first-child:before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+}
+
+.font-styrene-display {
+    font-family: var(--font-styrene-a),ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }

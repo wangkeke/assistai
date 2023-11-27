@@ -13,34 +13,34 @@
             <main>
                 <section class="grid gap-4 grid-cols-1 max-w-sm mx-auto pb-10 place-content-center">
                     <h2 class="font-styrene-display
-                        font-medium
+                        font-semibold
                         tracking-tight
                         text-6xl
                         text-center
                         pb-4 text-black
-                    ">Talk to Assistai</h2>
+                    ">Talk to Uassistant</h2>
                     <form name="resetpwdForm" class="contents" onsubmit="return false">
                         <label class="block">
-                            <span class="block text-sm font-medium">邮箱</span>
-                            <input :disabled="one_disabled" id="email" name="email" placeholder="请输入邮箱地址" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="email">
+                            <span class="block text-sm font-medium">Email</span>
+                            <input :disabled="one_disabled" id="email" name="email" placeholder="Email" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="email">
                         </label>
-                        <p class="text-center text-sm text-stone-500" :class="step === 2?'block':'hidden'">我们已经向你的邮箱发送了验证码。请检查你的收件箱。没有收到? 
-                            <a href="#" @click="resetForm()" class="leading-6 font-semibold underline underline-offset-2 focus:text-stone-900">再试一次</a>
+                        <p class="text-center text-sm text-stone-500" :class="step === 2?'block':'hidden'">We have sent a verification code to your email. Please check your inbox. Did not receive?
+                            <a href="#" @click="resetForm()" class="leading-6 underline underline-offset-2 focus:text-stone-900">try again</a>
                         </p>
                         <label v-if="step === 2">
-                            <span class="block text-sm font-medium">验证码</span>
-                            <input id="captcha" name="captcha" placeholder="请输入验证码" minlength="6" maxlength="6" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="text">
+                            <span class="block text-sm font-medium">Captcha</span>
+                            <input id="captcha" name="captcha" placeholder="Captcha" minlength="6" maxlength="6" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="text">
                         </label>
                         <label v-if="step === 3">
-                            <span class="block text-sm font-medium">设置密码</span>
-                            <input id="password" name="password" placeholder="请输入密码" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
+                            <span class="block text-sm font-medium">New password</span>
+                            <input id="password" name="password" placeholder="New password" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
                         </label>
                         <label v-if="step === 3">
                             <div class="flex items-center justify-between text-sm font-medium">
-                                <span class="block text-sm font-medium">再次确认</span>
-                                <label class="text-sm text-red-800" :class="wrong_password?'block':'hidden'">两次密码输入不一致</label>
+                                <span class="block text-sm font-medium">Confirm password</span>
+                                <label class="text-sm text-red-800" :class="wrong_password?'block':'hidden'">Confirm password is incorrect.</label>
                             </div>
-                            <input id="double_password" name="double_password" @focus="wrong_password = false" placeholder="请再次输入密码确认" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
+                            <input id="double_password" name="double_password" @focus="wrong_password = false" placeholder="Please enter your password again to confirm" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
                         </label>
 
                         <button v-if="step === 1" type="submit" @click="sendEmailCode()" :disabled="one_disabled" class=" group 
@@ -51,7 +51,7 @@
                             flex
                             items-center
                             place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
-                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 发送邮箱验证码</button>
+                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> Continue with email</button>
 
                         <button v-if="step === 2" type="submit" @click="checkEmailCode()" :disabled="two_disabled" class=" group
                             px-4
@@ -61,7 +61,7 @@
                             flex
                             items-center
                             place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
-                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 校验验证码</button>
+                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> Continue with captcha</button>
 
                         <button v-if="step === 3" type="submit" @click="resetpwd()" :disabled="three_disabled" class=" group
                             px-4
@@ -71,7 +71,7 @@
                             flex
                             items-center
                             place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
-                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 重置密码</button>
+                        ><svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> Forgot password?</button>
                         <button v-if="step === 3" type="button" @click="resetForm()" :disabled="three_disabled" class=" group
                             px-4
                             py-2
@@ -80,11 +80,11 @@
                             flex
                             items-center
                             place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
-                        > 重 置</button>
+                        > Reset it</button>
 
                     </form>
                     <p class="text-center text-sm text-black">
-                        <NuxtLink to="/login" class="font-semibold leading-6 text-gigas-800 hover:text-gigas-900">立即登录</NuxtLink>
+                        Already have an account?&nbsp;&nbsp;<NuxtLink to="/login" class="leading-6 text-gigas-800 hover:text-gigas-900">Sign in</NuxtLink>
                     </p>
                 </section>
             </main>
@@ -119,7 +119,7 @@
                 let data = response._data
                 if(response.ok === true){
                     toast.add({
-                        title: '验证码已发送！',
+                        title: 'Verification code has sent.',
                         icon: 'i-heroicons-check-circle',
                         color: 'gigas'
                     })
@@ -158,7 +158,7 @@
                 }else{
                     two_disabled.value = false
                     toast.add({
-                        title: '验证码校验失败！',
+                        title: 'Verification code error.',
                         icon: 'i-heroicons-exclamation-triangle',
                         color: 'red'
                     })
@@ -190,7 +190,7 @@
                     router.push("/login")
                 }else{
                     toast.add({
-                        title: '重置密码失败！',
+                        title: 'Server internal error.',
                         icon: 'i-heroicons-exclamation-triangle',
                         color: 'red'
                     })

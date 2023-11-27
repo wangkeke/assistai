@@ -22,11 +22,11 @@ export default defineAppConfig({
                 "leaveTo": "opacity-0"
               }
             },
-            "background": "bg-white dark:bg-gray-900",
+            "background": "bg-white/50 dark:bg-gray-900",
             "ring": "",
             "rounded": "rounded-lg",
             "shadow": "shadow-element",
-            "width": "sm:max-w-lg",
+            "width": "sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl",
             "height": "",
             "transition": {
               "enter": "ease-out duration-300",

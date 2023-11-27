@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      title: "智能助手",
+      title: "Uassistant",
       charset: 'utf-8',
       link: [{rel: "icon", type: "image/svg+xml", href: "/ai-871f7a4b.svg"}],
       viewport: 'width=device-width, initial-scale=1',

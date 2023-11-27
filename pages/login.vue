@@ -13,23 +13,23 @@
             <main>
                 <section class="grid gap-6 grid-cols-1 max-w-sm mx-auto pb-10 place-content-center">
                     <h2 class="font-styrene-display
-                        font-medium
+                        font-semibold
                         tracking-tight
                         text-6xl
                         text-center
                         pb-4 text-black
-                    ">Talk to Assistai</h2>
+                    ">Talk to Uassistant</h2>
                     <form name="login" class="contents" onsubmit="return false">
                         <label class="block">
-                            <span class="block text-sm font-medium">邮箱</span>
-                            <input v-model="username" placeholder="请输入邮箱地址" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="email">
+                            <span class="block text-sm font-medium">Email</span>
+                            <input v-model="username" placeholder="Email address" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="email">
                         </label>
                         <label class="block">
                             <div class="flex items-center justify-between text-sm font-medium">
-                                <label for="password" class="text-black">密码</label>
-                                <NuxtLink to="/resetpwd" class="text-sm text-stone-500">重置密码</NuxtLink>
+                                <label for="password" class="text-black">Password</label>
+                                <NuxtLink to="/resetpwd" class="text-sm text-stone-500 hover:underline hover:underline-offset-1">Forgot password?</NuxtLink>
                             </div>
-                            <input v-model="password" placeholder="请输入登录密码" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
+                            <input v-model="password" placeholder="Password" minlength="6" maxlength="50" required class="mt-1 block w-full px-4 py-2 rounded-lg shadow-sm border border-uivory-300" type="password">
                         </label>
                         <button type="submit" :disabled="isDisabled" @click="submit()" class=" group
                             px-4
@@ -40,11 +40,11 @@
                             items-center
                             place-content-center gap-2 bg-black text-white disabled:bg-uivory-300 disabled:text-uivory-500"
                         >
-                        <svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> 登 录
+                        <svg xmlns="http://www.w3.org/2000/svg" class=" hidden group-disabled:block mr-1" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg> Login
                         </button>
                     </form>
                     <p class="text-center text-sm text-black">
-                        需要一个帐户？ <NuxtLink to="/regist" class="font-semibold leading-6 text-gigas-800 hover:text-gigas-900">立即注册</NuxtLink>
+                        Don't have an account?&nbsp;&nbsp;<NuxtLink to="/regist" class=" font-medium leading-6 text-gigas-800 hover:text-gigas-900">Sign up</NuxtLink>
                     </p>
                 </section>
             </main>
