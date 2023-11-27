@@ -607,7 +607,7 @@
   }
   
   async function sendAssistantRequest(messages){
-    await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation_test", {
+    await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
           method: 'post',
           headers: {"Authorization":"Bearer " + user.access_token},
           body: messages,
