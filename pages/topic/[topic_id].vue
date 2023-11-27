@@ -602,7 +602,7 @@
   }
   
   function sendAssistantRequest(messages){
-    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation_test", {
+    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
       method: 'POST',
       headers: {
         "Authorization": "Bearer " + user.access_token,
