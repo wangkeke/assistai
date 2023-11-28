@@ -77,7 +77,7 @@ async function loadDocument(){
     let fileSuffix = props.fileUrl.substring(props.fileUrl.lastIndexOf('.')+1)
     if(isImageType(fileSuffix)){
         let img = document.createElement("img")
-        img.src = useRuntimeConfig().public.apiBase + props.fileUrl
+        img.src = props.fileUrl
         img.alt = props.fileName
         contentType.value = "html"
         content.value = img.outerHTML
@@ -86,7 +86,7 @@ async function loadDocument(){
     }
     if(isOfficeType(fileSuffix)){
         let iframe = document.createElement("iframe")
-        iframe.src = "https://view.officeapps.live.com/op/view.aspx?src=" + useRuntimeConfig().public.apiBase + props.fileUrl
+        iframe.src = "https://view.officeapps.live.com/op/view.aspx?src=" + props.fileUrl
         iframe.title = props.fileName
         iframe.classList.add("w-full")
         iframe.classList.add("min-h-screen")
