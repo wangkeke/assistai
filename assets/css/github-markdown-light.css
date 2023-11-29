@@ -523,6 +523,10 @@
   border-bottom: 0;
 }
 
+.markdown-body ul, .markdown-body ol {
+  padding: 0;
+}
+
 .markdown-body ul.no-list,
 .markdown-body ol.no-list {
   padding: 0;

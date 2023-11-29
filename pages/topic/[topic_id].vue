@@ -236,14 +236,14 @@
         
         <!-- 底部消息输入框 -->
         <div class="fixed max-w-3xl bottom-0 left-0 right-0 mx-auto">
-          <div id="userMessageTip" style="color: rgb(115, 113, 99);" class="pb-1 text-xs font-medium delay-100 duration-500 transition-opacity text-right pr-2 opacity-0">
+          <div id="userMessageTip" class="pb-1 text-xs font-medium delay-100 duration-500 transition-opacity text-right pr-2 opacity-0 text-stone-500">
             <strong>Shift + ⏎</strong> to add a new line, <strong> ⏎</strong> to send a message
           </div>
           <fieldset style="background-color: rgb(248, 248, 247);" class=" w-full gap-x-2 px-4 flex justify-between items-center mx-auto rounded-2xl shadow-element">
             <div class="relative flex-1">
               <div class="overflow-y-auto w-full max-h-96 break-words py-4">
                   <div id="userMessage" @keypress="keyMessage" @focus="userMessageTipFocus" @blur="userMessageTipBlur" contenteditable="true" translate="no" @input="messageInput" enterkeyhint="enter" tabindex="0" class="ProseMirror focus:outline-none">
-                      <p v-bind:data-placeholder="userMessagePlaceholder" class="is-empty is-editor-empty before:!text-stone-400 before:whitespace-nowrap">
+                      <p v-bind:data-placeholder="userMessagePlaceholder" class="is-empty text-sm is-editor-empty before:!text-stone-400 before:whitespace-nowrap">
                           <br class="ProseMirror-trailingBreak">
                       </p>
                   </div>
@@ -279,7 +279,7 @@
                   focus-within:ring"
                   >
                   <input :disabled="isUploadLoading" @change="uploadFiles" class="opacity-0 absolute inset-0 rounded-xl -z-10 overflow-hidden peer/upload" :accept="acceptFileTypes.join(',')" multiple="" type="file">
-                  <div class="absolute -translate-y-12 -translate-x-16 top-0 left-0 text-xs min-w-max z-20 text-white rounded-md bg-black hidden peer-hover/upload:block px-3 py-1">Add files (5 max, 10MB each)<br>Accepts pdf, txt, csv, etc.</div>
+                  <div class="absolute -translate-y-12 -translate-x-16 top-0 left-0 text-xs min-w-max z-20 text-white rounded-md bg-black hidden peer-hover/upload:block px-3 py-1">Add files (5 max, 10MB each)<br>Accepts jpg, png, webp, etc.</div>
                   <template v-if="isUploadLoading">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>
                   </template>
@@ -296,7 +296,8 @@
             <div class="absolute inset-0 box-content px-1 bg-bg-100/75 -z-10 backdrop-blur" style="bottom: calc(env(safe-area-inset-bottom, 0) * -1);">
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="h-2.5"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg> 
-            &nbsp;Uassistant is a agent based on AI and may display incorrect or harmful information.
+              &nbsp;
+              <a class="hover:underline hover:text-stone-800 text-stone-500" href="#">Uassistant is a agent based on AI and may display incorrect or harmful information.</a>
           </div>
         </div>
       </div>
@@ -359,11 +360,13 @@
   const isUploadLoading = ref(false)
   const uploadFileList = ref([])
   const acceptFileTypes = ref([
-          '.jpg', '.jpeg', '.png', '.webp', '.gif', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.csv', '.pdf', '.txt', '.sql', 
-          '.json', '.java', '.py', '.mq4', '.mq5', '.mqh', '.js', '.jsx', '.ts', '.tsx', '.log', '.html', '.htm', '.md', '.vue', '.rtf', 
-          '.ipynb', '.css', '.cs', '.php', '.c', '.cpp', '.swift', '.go', '.scala', '.dart', '.lua', '.sh', '.bash', '.ini', '.config', 
-          '.yaml', '.yml', '.bat'
+          '.jpg', '.jpeg', '.png', '.webp', '.gif'
+          // , '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.csv', '.pdf', '.txt', '.sql', 
+          // '.json', '.java', '.py', '.mq4', '.mq5', '.mqh', '.js', '.jsx', '.ts', '.tsx', '.log', '.html', '.htm', '.md', '.vue', '.rtf', 
+          // '.ipynb', '.css', '.cs', '.php', '.c', '.cpp', '.swift', '.go', '.scala', '.dart', '.lua', '.sh', '.bash', '.ini', '.config', 
+          // '.yaml', '.yml', '.bat'
         ])
+
   const userMessagePlaceholder = ref('Send Message...')
 
 
@@ -593,7 +596,8 @@
 
   function userMessageTipFocus(){
     if(document.getElementById("userMessage").getAttribute("contenteditable")==="true"){
-      document.getElementById("userMessageTip").classList.remove("opacity-0")
+      let tip = document.getElementById("userMessageTip")
+      tip.classList.remove("opacity-0")
     }
   }
 
@@ -607,7 +611,7 @@
           headers: {"Authorization":"Bearer " + user.access_token},
           body: messages,
           onRequest({request}){
-            chatList.value.push({id: undefined, role: "assistant", content_type: "text", content: "", attachs: [], topic_chat_issues: []})
+            // chatList.value.push({id: undefined, role: "assistant", content_type: "text", content: "", attachs: [], topic_chat_issues: []})
             setTimeout(() =>{
               // 页面滚动条自动滚动到内容最底部
               let main = document.getElementById('main')
@@ -662,7 +666,7 @@
     //     } else if(response.status === 403){
     //       userRemainMessageStats(0)
     //       toast.add({
-    //         title: "You have exhausted the number of messages you can send today.",
+    //         title: "Today messages have been exhausted.",
     //         icon: 'i-heroicons-exclamation-triangle',
     //         color: 'red'
     //       })
@@ -702,10 +706,10 @@
 
   function userRemainMessageStats(remainNum){
     if(remainNum > 0){
-      userMessagePlaceholder.value = `You can still send ${remainNum} messages today...`
+      userMessagePlaceholder.value = `${remainNum} messages remaining today...`
       isSending.value = false
     }else{
-      userMessagePlaceholder.value = "You have exhausted the number of messages you can send today..."
+      userMessagePlaceholder.value = "Today messages have been exhausted..."
       document.getElementById("userMessage").setAttribute("contenteditable", false)
       document.getElementById("userMessageTip").classList.add("opacity-0")
     }

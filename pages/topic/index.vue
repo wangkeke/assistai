@@ -24,18 +24,14 @@
                     rounded-3xl
                     top-4
                     backdrop-blur-xl
-                    sticky
                     z-10
-                    grid-flow-col
-                    grid-cols-[minmax(0,_1fr)_auto]
-                    gap-2
                     shadow-element bg-white/50 hover:bg-white group 
                 ">
                     <div class="flex items-center flex-grow overflow-x-hidden">
                         <div class="flex flex-col w-full">
                             <div class="overflow-y-auto w-full max-h-96 break-words py-4">
                                 <div @keypress="keyMessage" contenteditable="true" translate="no" @input="messageInput" enterkeyhint="enter" tabindex="0" class="ProseMirror focus:outline-none">
-                                    <p data-placeholder="Send a message or search past chats..." class="is-empty is-editor-empty before:!text-stone-400 before:whitespace-nowrap">
+                                    <p data-placeholder="Send a message or search past chats..." class="is-empty text-sm is-editor-empty before:!text-stone-400 before:whitespace-nowrap">
                                         <br class="ProseMirror-trailingBreak">
                                     </p>
                                 </div>
@@ -74,7 +70,7 @@
                             focus-within:ring"
                             >
                             <input :disabled="isUploadLoading" @change="uploadFiles" class="opacity-0 absolute inset-0 rounded-xl -z-10 overflow-hidden peer/upload" :accept="acceptFileTypes.join(',')" multiple="" type="file">
-                            <div class="absolute -translate-y-12 -translate-x-16 top-0 left-0 text-xs min-w-max z-20 text-white rounded-md bg-black hidden peer-hover/upload:block px-3 py-1">Add files (5 max, 10MB each)<br>Accepts pdf, txt, csv, etc.</div>
+                            <div class="absolute -translate-y-12 -translate-x-16 top-0 left-0 text-xs min-w-max z-20 text-white rounded-md bg-black hidden peer-hover/upload:block px-3 py-1">Add files (5 max, 10MB each)<br>Accepts jpg, png, webp, etc.</div>
                             <template v-if="isUploadLoading">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>
                             </template>
@@ -279,11 +275,12 @@ const isUploadLoading = ref(false)
 const createChatButtonText = ref("Start a new chat")
 const uploadFileList = ref([])
 const acceptFileTypes = ref(
-    ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.csv', '.pdf', '.txt', '.sql', 
-        '.json', '.java', '.py', '.mq4', '.mq5', '.mqh', '.js', '.jsx', '.ts', '.tsx', '.log', '.html', '.htm', '.md', '.vue', '.rtf', 
-        '.ipynb', '.css', '.cs', '.php', '.c', '.cpp', '.swift', '.go', '.scala', '.dart', '.lua', '.sh', '.bash', '.ini', '.config', 
-        '.yaml', '.yml', '.bat']
-)
+    ['.jpg', '.jpeg', '.png', '.webp', '.gif'
+    // , '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.csv', '.pdf', '.txt', '.sql', 
+    //  '.json', '.java', '.py', '.mq4', '.mq5', '.mqh', '.js', '.jsx', '.ts', '.tsx', '.log', '.html', '.htm', '.md', '.vue', '.rtf', 
+    //  '.ipynb', '.css', '.cs', '.php', '.c', '.cpp', '.swift', '.go', '.scala', '.dart', '.lua', '.sh', '.bash', '.ini', '.config', 
+    //  '.yaml', '.yml', '.bat'
+    ])
 
 const {data} = await useFetch(useRuntimeConfig().public.apiBase + "/topic/list", {
     method: 'get',
