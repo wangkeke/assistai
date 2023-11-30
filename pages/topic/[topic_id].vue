@@ -235,15 +235,15 @@
         <div class="" style="height: 100px;"></div>
         
         <!-- 底部消息输入框 -->
-        <div class="fixed max-w-3xl bottom-0 left-0 right-0 mx-auto">
-          <div id="userMessageTip" class="pb-1 text-xs font-medium delay-100 duration-500 transition-opacity text-right pr-2 opacity-0 text-stone-500">
+        <div class="fixed max-w-3xl bottom-0 left-0 right-0 mx-auto px-2 md:px-1">
+          <div id="userMessageTip" class="pb-1 hidden md:block text-xs font-medium delay-100 duration-500 transition-opacity text-right pr-2 opacity-0 text-stone-500">
             <strong>Shift + ⏎</strong> to add a new line, <strong> ⏎</strong> to send a message
           </div>
           <fieldset style="background-color: rgb(248, 248, 247);" class=" w-full gap-x-2 px-4 flex justify-between items-center mx-auto rounded-2xl shadow-element">
             <div class="relative flex-1">
               <div class="overflow-y-auto w-full max-h-96 break-words py-4">
                   <div id="userMessage" @keypress="keyMessage" @focus="userMessageTipFocus" @blur="userMessageTipBlur" contenteditable="true" translate="no" @input="messageInput" enterkeyhint="enter" tabindex="0" class="ProseMirror focus:outline-none">
-                      <p v-bind:data-placeholder="userMessagePlaceholder" class="is-empty text-sm is-editor-empty before:!text-stone-400 before:whitespace-nowrap">
+                      <p v-bind:data-placeholder="userMessagePlaceholder" class="is-empty is-editor-empty before:!text-stone-400 before:whitespace-nowrap">
                           <br class="ProseMirror-trailingBreak">
                       </p>
                   </div>
