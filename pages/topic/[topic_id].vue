@@ -606,102 +606,102 @@
   }
   
   async function sendAssistantRequest(messages){
-    await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
-          method: 'post',
-          headers: {"Authorization":"Bearer " + user.access_token},
-          body: messages,
-          onRequest({request}){
-            // chatList.value.push({id: undefined, role: "assistant", content_type: "text", content: "", attachs: [], topic_chat_issues: []})
-            setTimeout(() =>{
-              // 页面滚动条自动滚动到内容最底部
-              let main = document.getElementById('main')
-              main.scrollTop = main.scrollHeight
-            }, 100)
-          },
-          onResponse({ request, response, options }) {
-              if(response.ok){
-                chatList.value[chatList.value.length-1] = response._data.topic_chat
-                setTimeout(() =>{
-                  // 页面滚动条自动滚动到内容最底部
-                  let main = document.getElementById('main')
-                  main.scrollTop = main.scrollHeight
-                }, 100)
-                userRemainMessageStats(Number(response._data.remain_count))   
-              }else if(response.status === 401){  // 登录过期
-                useUser.removeUser()
-                router.push("/login")
-              }else if(response.status === 403){  // 超出最大使用限制
-                userRemainMessageStats(0)
-                toast.add({
-                  title: response._data.detail,
-                  icon: 'i-heroicons-exclamation-triangle',
-                  color: 'red'
-                })
-              } else{
-                toast.add({
-                  title: 'Server internal error',
-                  icon: 'i-heroicons-exclamation-triangle',
-                  color: 'red'
-                })
-                isSending.value = false
-              }
-          }
-      })
+    // await useFetch(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
+    //       method: 'post',
+    //       headers: {"Authorization":"Bearer " + user.access_token},
+    //       body: messages,
+    //       onRequest({request}){
+    //         // chatList.value.push({id: undefined, role: "assistant", content_type: "text", content: "", attachs: [], topic_chat_issues: []})
+    //         setTimeout(() =>{
+    //           // 页面滚动条自动滚动到内容最底部
+    //           let main = document.getElementById('main')
+    //           main.scrollTop = main.scrollHeight
+    //         }, 100)
+    //       },
+    //       onResponse({ request, response, options }) {
+    //           if(response.ok){
+    //             chatList.value[chatList.value.length-1] = response._data.topic_chat
+    //             setTimeout(() =>{
+    //               // 页面滚动条自动滚动到内容最底部
+    //               let main = document.getElementById('main')
+    //               main.scrollTop = main.scrollHeight
+    //             }, 100)
+    //             userRemainMessageStats(Number(response._data.remain_count))   
+    //           }else if(response.status === 401){  // 登录过期
+    //             useUser.removeUser()
+    //             router.push("/login")
+    //           }else if(response.status === 403){  // 超出最大使用限制
+    //             userRemainMessageStats(0)
+    //             toast.add({
+    //               title: response._data.detail,
+    //               icon: 'i-heroicons-exclamation-triangle',
+    //               color: 'red'
+    //             })
+    //           } else{
+    //             toast.add({
+    //               title: 'Server internal error',
+    //               icon: 'i-heroicons-exclamation-triangle',
+    //               color: 'red'
+    //             })
+    //             isSending.value = false
+    //           }
+    //       }
+    //   })
 
 
-    // fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
-    //   method: 'POST',
-    //   headers: {
-    //     "Authorization": "Bearer " + user.access_token,
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(messages),
-    //   async onopen(response) {
-    //     if (response.ok && response.headers.get('content-type') === EventStreamContentType) {
-    //       return; // everything's good
-    //     } else if(response.status === 401){
-    //       useUser.removeUser()
-    //       router.push("/login")
-    //       return
-    //     } else if(response.status === 403){
-    //       userRemainMessageStats(0)
-    //       toast.add({
-    //         title: "Today messages have been exhausted.",
-    //         icon: 'i-heroicons-exclamation-triangle',
-    //         color: 'red'
-    //       })
-    //       return
-    //     } else if(response.status >= 500) {
-    //       toast.add({
-    //         title: 'Server internal error.',
-    //         icon: 'i-heroicons-exclamation-triangle',
-    //         color: 'red'
-    //       })
-    //       return
-    //     }
-    //   },
-    //   onmessage(msg) {
-    //     if(msg.event==='start'){
-    //       chatList.value.push({id: undefined, role: msg.data, content_type: "text", content: "", attachs: [], topic_chat_issues: []})
-    //     }else if(msg.event==='stream'){
-    //       chatList.value[chatList.value.length-1].content += msg.data.replaceAll('\\n','\n')
-    //       // 页面滚动条自动滚动到内容最底部
-    //       let main = document.getElementById('main')
-    //       main.scrollTop = main.scrollHeight       
-    //     }else if(msg.event==='end'){
-    //       let endData = JSON.parse(msg.data)
-    //       chatList.value[chatList.value.length-1].id = Number(endData.chat_id)
-    //       userRemainMessageStats(Number(endData.remain_num))
-    //     }
-    //   },
-    //   onerror(err) {
-    //       toast.add({
-    //         title: err,
-    //         icon: 'i-heroicons-exclamation-triangle',
-    //         color: 'red'
-    //       })
-    //   }
-    // })
+    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
+      method: 'POST',
+      headers: {
+        "Authorization": "Bearer " + user.access_token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(messages),
+      async onopen(response) {
+        if (response.ok && response.headers.get('content-type') === EventStreamContentType) {
+          return; // everything's good
+        } else if(response.status === 401){
+          useUser.removeUser()
+          router.push("/login")
+          return
+        } else if(response.status === 403){
+          userRemainMessageStats(0)
+          toast.add({
+            title: "Today messages have been exhausted.",
+            icon: 'i-heroicons-exclamation-triangle',
+            color: 'red'
+          })
+          return
+        } else if(response.status >= 500) {
+          toast.add({
+            title: 'Server internal error.',
+            icon: 'i-heroicons-exclamation-triangle',
+            color: 'red'
+          })
+          return
+        }
+      },
+      onmessage(msg) {
+        if(msg.event==='start'){
+          chatList.value.push({id: undefined, role: msg.data, content_type: "text", content: "", attachs: [], topic_chat_issues: []})
+        }else if(msg.event==='stream'){
+          chatList.value[chatList.value.length-1].content += msg.data.replaceAll('\\n','\n')
+          // 页面滚动条自动滚动到内容最底部
+          let main = document.getElementById('main')
+          main.scrollTop = main.scrollHeight       
+        }else if(msg.event==='end'){
+          let endData = JSON.parse(msg.data)
+          chatList.value[chatList.value.length-1].id = Number(endData.id)
+          userRemainMessageStats(Number(endData.remain_num))
+        }
+      },
+      onerror(err) {
+          toast.add({
+            title: err,
+            icon: 'i-heroicons-exclamation-triangle',
+            color: 'red'
+          })
+      }
+    })
   }
 
   function userRemainMessageStats(remainNum){
