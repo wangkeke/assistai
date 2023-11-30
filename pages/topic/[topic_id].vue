@@ -192,11 +192,11 @@
                   <svg viewBox="0 0 24 16" overflow="visible" width="20"><g style="transform: translateX(13px) rotateZ(0deg); transform-origin: 4.775px 7.73501px;" transform-origin="4.7750020027160645px 7.735011100769043px"><path shape-rendering="geometricPrecision" fill="rgb(24,24,24)" fill-opacity="1" d=" M0,0 C0,0 6.1677093505859375,15.470022201538086 6.1677093505859375,15.470022201538086 C6.1677093505859375,15.470022201538086 9.550004005432129,15.470022201538086 9.550004005432129,15.470022201538086 C9.550004005432129,15.470022201538086 3.382294178009033,0 3.382294178009033,0 C3.382294178009033,0 0,0 0,0 C0,0 0,0 0,0z"></path></g><g style="transform: none; transform-origin: 7.935px 7.73501px;" opacity="1" transform-origin="7.93500280380249px 7.735011100769043px"><path shape-rendering="geometricPrecision" fill="rgb(24,24,24)" fill-opacity="1" d=" M5.824605464935303,9.348296165466309 C5.824605464935303,9.348296165466309 7.93500280380249,3.911694288253784 7.93500280380249,3.911694288253784 C7.93500280380249,3.911694288253784 10.045400619506836,9.348296165466309 10.045400619506836,9.348296165466309 C10.045400619506836,9.348296165466309 5.824605464935303,9.348296165466309 5.824605464935303,9.348296165466309 C5.824605464935303,9.348296165466309 5.824605464935303,9.348296165466309 5.824605464935303,9.348296165466309z M6.166755199432373,0 C6.166755199432373,0 0,15.470022201538086 0,15.470022201538086 C0,15.470022201538086 3.4480772018432617,15.470022201538086 3.4480772018432617,15.470022201538086 C3.4480772018432617,15.470022201538086 4.709278583526611,12.22130012512207 4.709278583526611,12.22130012512207 C4.709278583526611,12.22130012512207 11.16093635559082,12.22130012512207 11.16093635559082,12.22130012512207 C11.16093635559082,12.22130012512207 12.421928405761719,15.470022201538086 12.421928405761719,15.470022201538086 C12.421928405761719,15.470022201538086 15.87000560760498,15.470022201538086 15.87000560760498,15.470022201538086 C15.87000560760498,15.470022201538086 9.703250885009766,0 9.703250885009766,0 C9.703250885009766,0 6.166755199432373,0 6.166755199432373,0 C6.166755199432373,0 6.166755199432373,0 6.166755199432373,0z"></path></g></svg>
                 </div>
               </div>
-              <div name="chat" v-if="item.id" :role="item.role" :data-index="index" :data-id="item.id" class="group group-last:is-last col-start-2 grid gap-2">
+              <div name="chat" :role="item.role" :data-index="index" :data-id="item.id" class="group group-last:is-last col-start-2 grid gap-2">
                 <div class="message-content rounded-xl px-3 py-2 break-words text-stone-900 transition-all grid gap-3 grid-cols-1 max-w-69ch bg-white place-self-start">
                   <div class="contents markdown-body" v-html="markdown.render(item.content)">
                   </div>
-                  <div class="flex gap-0.5 -mx-1 -mt-2 text-stone-500 justify-between items-stretch">
+                  <div v-if="item.id" class="flex gap-0.5 -mx-1 -mt-2 text-stone-500 justify-between items-stretch">
                     <div class="flex gap-0.5">
                       <div class="contents">
                         <button @click="copyContents(item)" class="copy flex flex-row gap-1 items-center hover:bg-stone-200 p-1 py-0.5 rounded-md transition-opacity delay-100 text-xs">
@@ -652,7 +652,7 @@
     //   })
 
 
-    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation_test", {
+    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
       method: 'POST',
       headers: {
         "Authorization": "Bearer " + user.access_token,
@@ -688,16 +688,20 @@
           chatList.value.push({id: undefined, role: msg.data, content_type: "text", content: "", attachs: [], topic_chat_issues: []})
         }else if(msg.event==='stream'){
           chatList.value[chatList.value.length-1].content += msg.data.replaceAll('\\n','\n')
-          // 页面滚动条自动滚动到内容最底部
-          let main = document.getElementById('main')
-          main.scrollTop = main.scrollHeight       
+          setTimeout(() =>{
+            // 页面滚动条自动滚动到内容最底部
+            let main = document.getElementById('main')
+            main.scrollTop = main.scrollHeight
+          }, 50)   
         }else if(msg.event==='end'){
           let endData = JSON.parse(msg.data)
           chatList.value[chatList.value.length-1].id = Number(endData.id)
           userRemainMessageStats(Number(endData.remain_num))
-          // 页面滚动条自动滚动到内容最底部
-          let main = document.getElementById('main')
-          main.scrollTop = main.scrollHeight      
+          setTimeout(() =>{
+            // 页面滚动条自动滚动到内容最底部
+            let main = document.getElementById('main')
+            main.scrollTop = main.scrollHeight
+          }, 50)      
         }
       },
       onerror(err) {
