@@ -563,6 +563,9 @@
               if(response.ok){
                 // 发送AI回复请求
                 chatList.value.push(response._data)
+                // 页面滚动条自动滚动到内容最底部
+                let main = document.getElementById('main')
+                main.scrollTop = main.scrollHeight   
                 sendAssistantRequest(chatList.value.slice(-turn.value*2-1))
               }else if(response.status === 401){  // 登录过期
                 useUser.removeUser()
@@ -649,7 +652,7 @@
     //   })
 
 
-    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
+    fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation_test", {
       method: 'POST',
       headers: {
         "Authorization": "Bearer " + user.access_token,
@@ -692,6 +695,9 @@
           let endData = JSON.parse(msg.data)
           chatList.value[chatList.value.length-1].id = Number(endData.id)
           userRemainMessageStats(Number(endData.remain_num))
+          // 页面滚动条自动滚动到内容最底部
+          let main = document.getElementById('main')
+          main.scrollTop = main.scrollHeight      
         }
       },
       onerror(err) {
