@@ -567,7 +567,7 @@
                   // 页面滚动条自动滚动到内容最底部
                   let main = document.getElementById('main')
                   main.scrollTop = main.scrollHeight
-                }, 50)        
+                }, 100)        
                 sendAssistantRequest(chatList.value.slice(-turn.value*2-1))
               }else if(response.status === 401){  // 登录过期
                 useUser.removeUser()
