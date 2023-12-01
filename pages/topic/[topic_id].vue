@@ -724,15 +724,6 @@
             last_p.setAttribute("data-placeholder", userMessagePlaceholder.value)
             last_p.setAttribute("class","is-empty is-editor-empty before:!text-stone-400 before:whitespace-nowrap")
         }
-        if(!event.data){
-            last_p.focus()
-            let range = document.createRange();
-            range.selectNodeContents(last_p);
-            range.collapse(false);
-            let selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range); 
-        }
     }else if(event.inputType === 'insertLineBreak'){
         last_p.removeAttribute("class")
         last_p.removeAttribute("data-placeholder")

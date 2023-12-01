@@ -377,15 +377,6 @@ function messageInput(event){
             last_p.setAttribute("data-placeholder", "Send a message or search past chats...")
             last_p.setAttribute("class","is-empty is-editor-empty before:!text-stone-400 before:whitespace-nowrap")
         }
-        if(!event.data){
-            last_p.focus()
-            let range = document.createRange();
-            range.selectNodeContents(last_p);
-            range.collapse(false);
-            let selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range); 
-        }
         if(event.target.textContent.length<=2){
             createChatButtonText.value = "Start a new chat"
         }
