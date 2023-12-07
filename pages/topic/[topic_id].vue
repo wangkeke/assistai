@@ -194,7 +194,7 @@
               </div>
               <div name="chat" :role="item.role" :data-index="index" :data-id="item.id" class="group group-last:is-last col-start-2 grid gap-2">
                 <div class="message-content rounded-xl px-3 py-2 break-words text-stone-900 transition-all grid gap-3 grid-cols-1 max-w-69ch bg-white place-self-start">
-                  <div class="contents markdown-body" v-html="markdown.render(item.content)">
+                  <div class="contents markdown-body" data-theme="light" v-html="markdown.render(item.content)">
                   </div>
                   <div v-if="item.id" class="flex gap-0.5 -mx-1 -mt-2 text-stone-500 justify-between items-stretch">
                     <div class="flex gap-0.5">
@@ -309,7 +309,9 @@
 <script setup>
   // import 'highlight.js/styles/github-dark-dimmed.css'
   import 'highlight.js/styles/atom-one-dark.min.css'
+  import '~/assets/css/github-markdown-dark.css'
   import '~/assets/css/github-markdown-light.css'
+  import '~/assets/css/github-markdown.css'
   import hljs from 'highlight.js'
   import { useUserStore } from "~/stores/user"
   import { fetchEventSource, EventStreamContentType } from '@microsoft/fetch-event-source'
@@ -611,7 +613,7 @@
   }
   
   async function sendAssistantRequest(messages){
-    await fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
+    await fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation_test", {
       method: 'POST',
       headers: {
         "Authorization": "Bearer " + user.access_token,
@@ -836,4 +838,22 @@ function previewFile(file_etag, file_name, file_url){
   .max-w-69ch{
     max-width: 69ch;
   }
+
+  .markdown-body ol{
+    list-style-type: decimal;
+  }
+
+  .markdown-body ol ol{
+    list-style-type: decimal;
+  }
+
+  .markdown-body ul{
+    list-style-type:disc;
+  }
+  
+  .markdown-body ul ul{
+    list-style-type: circle;
+  }
+  
+  
 </style>
