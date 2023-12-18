@@ -614,7 +614,7 @@
   }
   
   async function sendAssistantRequest(messages){
-    await fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation_test", {
+    await fetchEventSource(useRuntimeConfig().public.apiBase + "/chat/" + topicId + "/conversation", {
       method: 'POST',
       headers: {
         "Authorization": "Bearer " + user.access_token,
