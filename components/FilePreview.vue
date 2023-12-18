@@ -98,7 +98,7 @@ async function loadDocument(){
     }
     if(isOnlineType(fileSuffix)){
         let iframe = document.createElement("iframe")
-        iframe.src = useRuntimeConfig().public.apiBase + props.fileUrl
+        iframe.src = props.fileUrl
         iframe.title = props.fileName
         iframe.classList.add("w-full")
         iframe.classList.add("min-h-screen")
@@ -108,7 +108,7 @@ async function loadDocument(){
         isLoading.value = false
         return
     }
-    await useFetch(useRuntimeConfig().public.apiBase + props.fileUrl, {
+    await useFetch(props.fileUrl, {
         method: 'get',
         headers: {"Authorization":"Bearer " + user.access_token},
         retry: false,
